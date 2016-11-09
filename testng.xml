@@ -1,0 +1,42 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Smoke" verbose="1" parallel="tests" thread-count="5">
+    <test name="Emulator-1">
+        <parameter name="port" value="4723"/>
+        <parameter name="device" value="192.168.57.101:5555"/>
+        <parameter name="platform_name" value="Android Emulator"/>
+        <parameter name="platform_version" value="6.0.0"/>
+        <!--specify the below property when running with chrome browser-->
+        <parameter name="browser_name" value="BrowserType.CHROME"/>
+        <classes>
+            <class name="com.sample.appium.AppiumParallelTests"/>
+            <!--<class name="com.sample.appium.moneyHansMobile"/>-->
+        </classes>
+    </test>
+
+	<test name="Emulator-2">
+        <parameter name="port" value="4725"/>
+        <parameter name="device" value="192.168.57.103:5555"/>
+        <parameter name="platform_name" value="Android Emulator"/>
+        <parameter name="platform_version" value="6.0.0"/>
+        <parameter name="browser_name" value="MobileBrowserType.BROWSER"/>
+        <!--specify the below property when running with chrome browser
+        <parameter name="browser_name" value="Android"/>-->
+		<classes>
+			<class name="com.sample.appium.AppiumParallelTests"/>
+            <!--<class name="com.sample.appium.moneyHansMobile"/>-->
+		</classes>
+	</test>
+
+	<test name="Real-Device-1">
+        <parameter name="port" value="4727"/>
+        <parameter name="device" value="5b9da517"/>
+        <parameter name="platform_name" value="Android"/>
+        <parameter name="platform_version" value="4.4.4"/>
+        <!--specify the below property when running with chrome browser-->
+        <parameter name="browser_name" value="MobileBrowserType.BROWSER"/>
+		<classes>
+			<class name="com.sample.appium.AppiumParallelTests"/>
+            <!--<class name="com.sample.appium.moneyHansMobile"/>-->
+		</classes>
+	</test>
+</suite>
